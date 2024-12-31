@@ -1,6 +1,8 @@
 # Here we find a typical ROS description package, this set the
 # JVRC_DESCRIPTION_PATH CMake variable
 find_description_package(jvrc_description)
+find_description_package(mc_kuavo4pro_description)
+
 # Generate the robot module C++ code using this value
 configure_file(Kuavo4pro.in.cpp
                "${CMAKE_CURRENT_BINARY_DIR}/Kuavo4pro.cpp")

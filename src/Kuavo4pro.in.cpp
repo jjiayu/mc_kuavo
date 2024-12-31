@@ -3,20 +3,22 @@
 #include <RBDyn/parsers/urdf.h>
 
 #include <boost/filesystem.hpp>
+
 namespace bfs = boost::filesystem;
 
 namespace
 {
 
 // This is set by CMake, see CMakeLists.txt
-static const std::string JVRC_DESCRIPTION_PATH = "@JVRC_DESCRIPTION_PATH@";
+static const std::string MC_KUAVO4PRO_DESCRIPTION_PATH = "@MC_KUAVO4PRO_DESCRIPTION_PATH@";
 
 } // namespace
 
 namespace mc_robots
 {
 
-Kuavo4pro::Kuavo4pro() : mc_rbdyn::RobotModule(JVRC_DESCRIPTION_PATH, "jvrc1")
+Kuavo4pro::Kuavo4pro() : mc_rbdyn::RobotModule(MC_KUAVO4PRO_DESCRIPTION_PATH, "kuavo4pro") //kuavo4pro is the urdf file name
+
 {
   // True if the robot has a fixed base, false otherwise
   bool fixed = false;
@@ -53,14 +55,14 @@ Kuavo4pro::Kuavo4pro() : mc_rbdyn::RobotModule(JVRC_DESCRIPTION_PATH, "jvrc1")
   _bodySensors.emplace_back("FloatingBase", "PELVIS_S", sva::PTransformd::Identity());
 
   // Define a minimal set of self-collisions
-  _minimalSelfCollisions = {
-      {"WAIST_R_S", "L_SHOULDER_Y_S", 0.02, 0.001, 0.}, {"WAIST_R_S", "R_SHOULDER_Y_S", 0.02, 0.001, 0.},
-      {"PELVIS_S", "R_ELBOW_P_S", 0.05, 0.001, 0.},     {"PELVIS_S", "L_ELBOW_P_S", 0.05, 0.001, 0.},
-      {"R_WRIST_Y_S", "R_HIP_Y_S", 0.05, 0.025, 0.},    {"L_WRIST_Y_S", "L_HIP_Y_S", 0.05, 0.025, 0.}};
-  _commonSelfCollisions = _minimalSelfCollisions;
+  // _minimalSelfCollisions = {
+  //     {"WAIST_R_S", "L_SHOULDER_Y_S", 0.02, 0.001, 0.}, {"WAIST_R_S", "R_SHOULDER_Y_S", 0.02, 0.001, 0.},
+  //     {"PELVIS_S", "R_ELBOW_P_S", 0.05, 0.001, 0.},     {"PELVIS_S", "L_ELBOW_P_S", 0.05, 0.001, 0.},
+  //     {"R_WRIST_Y_S", "R_HIP_Y_S", 0.05, 0.025, 0.},    {"L_WRIST_Y_S", "L_HIP_Y_S", 0.05, 0.025, 0.}};
+  // _commonSelfCollisions = _minimalSelfCollisions;
 
   // Define simple grippers
-  _grippers = {{"l_gripper", {"L_UTHUMB"}, true}, {"r_gripper", {"R_UTHUMB"}, false}};
+  // _grippers = {{"l_gripper", {"L_UTHUMB"}, true}, {"r_gripper", {"R_UTHUMB"}, false}};
 
   // Default configuration of the floating base
   _default_attitude = {{1., 0., 0., 0., 0., 0., 0.8275}};
