@@ -1,0 +1,44 @@
+# Ignore build directories
+build/
+bin/
+obj/
+
+# Ignore CMake generated files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Ignore Visual Studio Code settings
+.vscode/
+
+# Ignore compiled dynamic libraries
+*.dll
+*.so
+*.dylib
+
+# Ignore executables
+*.exe
+*.out
+
+# Ignore temporary files
+*.log
+*.tmp
+*.swp
+
+# Ignore generated documentation
+docs/
+
+# Ignore user-specific files
+*.user
+*.suo
+*.userosscache
+*.userprefs
+
+# Ignore Python virtual environments
+venv/
+__pycache__/
+
+# Ignore system files
+.DS_Store
+Thumbs.db
