@@ -58,3 +58,5 @@ sed -i -e's/add_subdirectory(src)//' CMakeLists.txt
 - Use mkdir build, cd, make .., make, (sudo) make install to compile the robot module
 
 ### Use name Kuavo4pro in mc-rtc
+
+### Collision Pair is not added yet

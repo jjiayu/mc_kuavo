@@ -65,28 +65,12 @@ Kuavo4pro::Kuavo4pro() : mc_rbdyn::RobotModule(MC_KUAVO4PRO_DESCRIPTION_PATH, "k
   // _grippers = {{"l_gripper", {"L_UTHUMB"}, true}, {"r_gripper", {"R_UTHUMB"}, false}};
 
   // Default configuration of the floating base
-  _default_attitude = {{1., 0., 0., 0., 0., 0., 0.8275}};
+  _default_attitude = {{1., 0., 0., 0., 0., 0., 0.888}};
 
   // Default joint configuration, if a joint is omitted the configuration is 0 or the middle point of the limit range if
   // 0 is not a valid configuration
-  _stance["L_ANKLE_P"] = {-0.33};
-  _stance["L_ANKLE_R"] = {-0.02};
-  _stance["L_ELBOW_P"] = {-0.52};
-  _stance["L_HIP_P"] = {-0.38};
-  _stance["L_HIP_R"] = {0.02};
-  _stance["L_KNEE"] = {0.72};
-  _stance["L_SHOULDER_P"] = {-0.052};
-  _stance["L_SHOULDER_R"] = {0.17};
-  _stance["L_SHOULDER_Y"] = {0.0};
-  _stance["R_ANKLE_P"] = {-0.33};
-  _stance["R_ANKLE_R"] = {-0.01};
-  _stance["R_ELBOW_P"] = {-0.52};
-  _stance["R_HIP_P"] = {-0.38};
-  _stance["R_HIP_R"] = {-0.01};
-  _stance["R_KNEE"] = {0.72};
-  _stance["R_SHOULDER_P"] = {-0.052};
-  _stance["R_SHOULDER_R"] = {-0.17};
-  _stance["WAIST_P"] = {0.13};
+  // Add default join configuration as:
+  // _stance["joint_name"] = {-0.33};
 }
 
 } // namespace mc_robots
